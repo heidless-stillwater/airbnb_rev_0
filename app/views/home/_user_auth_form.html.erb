@@ -1,0 +1,29 @@
+
+<div class="pt-3">    
+  <h2 class="h4 text-center">Login/Signup</h2>
+</div>
+
+<hr>
+
+<div data-controller="users-by-email-auth" class="modal-body requires-validation ">
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input data-users-by-email-auth-target="email" type="email" class="form-control is-invalid" id="email" placeholder="name@example.com" required>
+  </div>
+
+  <div class="actions">
+      <!-- Submit button -->
+      <button data-users-by-email-auth-target="submit" type="submit" class="btn btn-primary btn-block w-100">Continue</button>
+  </div>
+
+</div>
+
+<div>
+  <div class="modal-header">
+    <button type="button" class="btn btn-light btn-block w-100 border border-dark">
+        <i class="fa fa-brands fa-google"></i> Continue with Google
+    </button>
+  </div>
+      
+</div>

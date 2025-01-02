@@ -1,0 +1,11 @@
+
+.modal-branding-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-branding-box div {
+  width: 100px;
+  height: 100px;
+}
