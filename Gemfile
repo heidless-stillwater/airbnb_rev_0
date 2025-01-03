@@ -23,6 +23,8 @@ gem "jbuilder"
 
 gem "devise"
 gem "sassc-rails"
+gem 'sass-rails'
+gem "ostruct", "~> 0.6.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -39,7 +41,17 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+group :development do
+  # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "web-console"
+end
+
 group :development, :test do
+  gem 'rspec-rails', '~> 7.0.0'
+  gem "factory_bot_rails", "~> 6.4"
+  gem "pry-rails", "~> 0.3.11"
+  gem "shoulda-matchers", "~> 6.4"
+
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
@@ -48,14 +60,5 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-end
-
-group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
-end
-
-group :development, :test do
-  gem 'rspec-rails', '~> 7.0.0'
 end
 
