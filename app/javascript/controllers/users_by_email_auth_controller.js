@@ -1,10 +1,10 @@
 import { Controller } from "@hotwired/stimulus";
-// import axios from 'axios';
+import axios from 'axios';
 
 export default class extends Controller {
   static targets = [ 'email', 'submit' ]
   connect() {
-    // console.log('axios: ', axios)
+    console.log('axios: ', axios)
     console.log('controller is connected: users_by_email_auth');
     // console.log('submitTarget: ', this.submitTarget);
     // console.log('emailTarget: ', this.emailTarget);
@@ -33,9 +33,13 @@ export default class extends Controller {
       e.preventDefault();
 
       if (this.emailTarget.value.length === 0) {
+        console.log('users_by_email_auth: email empty');
+
         // email field is empty. so, don't do anything
         // console.log('clicked: email field is empty');
       } else {
+        console.log('users_by_email_auth: email set');
+
         // email field is filled out
         // console.log('clicked: email field is NOT empty', this.emailTarget.value);
 
