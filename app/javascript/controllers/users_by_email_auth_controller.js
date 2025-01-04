@@ -4,8 +4,8 @@ import axios from 'axios';
 export default class extends Controller {
   static targets = [ 'email', 'submit' ]
   connect() {
-    console.log('axios: ', axios)
-    console.log('controller is connected: users_by_email_auth');
+    // console.log('axios: ', axios)
+    // console.log('controller is connected: users_by_email_auth');
     // console.log('submitTarget: ', this.submitTarget);
     // console.log('emailTarget: ', this.emailTarget);
 
