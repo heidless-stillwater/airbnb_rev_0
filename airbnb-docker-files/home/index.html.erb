@@ -1,0 +1,81 @@
+
+<%= render partial: 'shared/branding_modal_header' %>
+
+<div class="container mt-4 mb-1">
+  <div class="container text-white bg-primary rounded-5 text-center pt-2 pb-2" style="width:350px;">
+    <h4 class=""><%= @all_users.size %> users registered</h4>
+    <% @all_users.each do |user| %>
+      <h5><%= user.email  %></h5>
+    <% end %>
+  </div>
+</div>
+
+<!--
+<section class="overlay">
+  <h1>Overlay a background image</h1>
+  <p>Image test..</p>
+</section>
+-->
+
+<section class="bg-light py-1">
+  <div 
+    data-controller="geolocation" 
+    class="container"
+    data-latitude="<%= current_user&.profile&.latitude %>"
+    data-longitude="<%= current_user&.profile&.longitude %>"
+  >
+    <div class="row">
+      <% @all_properties.each do |property| %>
+        <div class="col-md-6 col-lg-3">
+          <div class="card my-3">
+          
+            <% rand_index = (rand*25).round(0) %>
+            <% img_url = "https://storage.cloud.google.com/h-pfolio-airbnb-app-bucket-0/images/rental_images/property_#{rand_index}.png" %>
+            <%= image_tag img_url, class:"card-image-top" %>
+
+            <%= js_map [{latitude: property.latitude, longitude: property.longitude}], height: "200px", zoom: 6, controls: true  %>
+            
+            <div class="card-body">
+              <h6 class="card-title">
+                <%= property.city %>, <%= property.state %>, <%= property.country %>
+              </h6>
+              <div class="card-details mb-1 fw-bold">
+                <%= property.average_rating.round(2) %>
+                <svg width="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div class="card-details mb-1">
+                  <%=Geocoder::Calculations.distance_between([property.latitude,property.longitude], [current_user&.profile&.latitude,current_user&.profile&.longitude]).round(0) %> (km/mi) away
+              </div>
+              <div class="card-details mb-1">Jun 19 - Jul 22</div>
+              <div class="card-details mb-3">
+                <span class="fw-bold">
+                  <%= humanized_money_with_symbol(property.price) %>
+                </span>
+                per night
+              </div>
+              <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light py-4 my-5">
+  <h1>mapbox</h4>
+  <div>
+    <%= js_map [{latitude: 51.507351, longitude: -0.127758}], height: "350px", zoom: 6, controls: true %>
+  </div>
+
+<!--
+  <h1>google map</h1>
+  <div data-controller="google-map">
+    <div id="map" style="width:100%;height:calc(100vh - 116px);;" data-google-map-target="myMap"></div>
+  </div>
+-->
+
+</section>
+

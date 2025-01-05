@@ -1,0 +1,16 @@
+
+
+<div class="flex">
+  <% @all_properties.each do |property|  %>
+    <div>
+      <p><%= property.name %></p>
+      <p><%= property.headline %></p>
+      <p><%= property.description %></p>
+      <p><%= property.city %></p>
+      <p><%= property.state %></p>
+      <p><%= property.country %></p>
+      <p><%= property.address_1 %></p>
+      <p><%= property.address_2 %></p>
+    </div>
+  <% end %>
+</div>

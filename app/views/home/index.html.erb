@@ -9,32 +9,34 @@
   <div 
     data-controller="geolocation" 
     class="container"
+    data-latitude=""
+    data-longitude=""
   >
     <div class="row">
       <% @properties.each do |property| %>
-        <div class="col">
-          <div class="">  
-            <div class="card my-3">
+        <div class="col-md-6 col-lg-3">
+          <div class="card my-3">
+            
+            <% rand_index = (rand*25).round(0) %>
+            <% img_url = "rental_images/property_#{rand_index}.png" %>
+            <%= image_tag img_url, class:"card-image-top" %>
 
-              <div class="card-image-top">
-                <%= image_tag("rental_images/property_0.png", size:"408x300", class:"mx-auto rounded", alt:"site avatar") %>
+            <%= js_map [{latitude: property.latitude, longitude: property.longitude}], height: "200px", zoom: 6, controls: true %>
+
+            <div class="card-body">
+      
+              <h6 class="card-title"> <%= property.city %>, <%= property.state %>, <%= property.country %> </h6>
+              <div class="card-details mb-1 fw-bold">
+                4.0
               </div>
-
-              <div class="card-body">
-        
-                <h6 class="card-title"> <%= property.city %>, <%= property.state %>, <%= property.country %> </h6>
-                <div class="card-details mb-1 fw-bold">
-                  4.0
-                </div>
-                <div class="card-details mb-1">7,944km away</div>
-                <div class="card-details mb-1">Jun 19 - 24</div>
-                <div class="card-details mb-3">
-                  <span class="fw-bold">$174</span> per night
-                </div>
-                <a href="#" class="btn btn-primary">Read More</a>
+              <div class="card-details mb-1">7,944km away</div>
+              <div class="card-details mb-1">Jun 19 - 24</div>
+              <div class="card-details mb-3">
+                <span class="fw-bold">$174</span> per night
               </div>
-
+              <a href="#" class="btn btn-primary">Read More</a>
             </div>
+
           </div>
         </div>
       <% end %>
