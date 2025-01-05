@@ -1,14 +1,41 @@
+<%= render partial: 'shared/branding_modal_header' %>
 
-<div class="d-flex flex-row">
-  <% @properties.each do |property| %>
-    <div>
-      <p> <%= property.name %> </p>
-      <p> <%= property.headline %> </p>
-      <p> <%= property.description %> </p>
-      <p> <%= property.address_1 %> </p>
-      <p> <%= property.city %> </p>
-      <p> <%= property.state %> </p>
-      <p> <%= property.country %> </p>
-    </div>
-  <% end %>
+<div class="container mx-auto text-white bg-primary rounded-5 text-center mb-5" style="width:600px;">
+  <h3 class="">users: ( <%= @all_users.size %> users registered )</h3>
+  <h3 class="">properties: ( <%= @properties.size %> properties listed )</h3>
 </div>
+
+<section class="bg-light py-1 rounded mb-3">
+  <div class="container">
+    <div class="row">
+      <% @properties.each do |property| %>
+        <div class="col">
+          <div class="">  
+            <div class="card my-3">
+
+              <div class="card-image-top">
+                <%= image_tag("rental_images/property_0.png", size:"408x300", class:"mx-auto rounded", alt:"site avatar") %>
+              </div>
+
+              <div class="card-body">
+        
+                <h6 class="card-title"> <%= property.city %>, <%= property.state %>, <%= property.country %> </h6>
+                <div class="card-details mb-1 fw-bold">
+                  4.0
+                </div>
+                <div class="card-details mb-1">7,944km away</div>
+                <div class="card-details mb-1">Jun 19 - 24</div>
+                <div class="card-details mb-3">
+                  <span class="fw-bold">$174</span> per night
+                </div>
+                <a href="#" class="btn btn-primary">Read More</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</section>

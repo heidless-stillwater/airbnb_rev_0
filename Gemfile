@@ -24,6 +24,7 @@ gem "jbuilder"
 gem "devise"
 gem "sassc-rails"
 gem 'sass-rails'
+gem 'geocoder'
 gem "ostruct", "~> 0.6.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
