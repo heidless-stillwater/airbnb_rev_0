@@ -1,9 +1,23 @@
 <%= render partial: 'shared/branding_modal_header' %>
 
+
+<div class="container mt-4 mb-1">
+  <div class="container text-white bg-primary rounded-5 text-center pt-2 pb-2" style="width:350px;">
+    <h4 class=""><%= @all_users.size %> users registered</h4>
+    <!--
+    <% @all_users.each do |user| %>
+      <h5><%= user.email  %></h5>
+    <% end %>
+    -->
+  </div>
+</div>
+
+<!--
 <div class="container mx-auto text-white bg-primary rounded-5 text-center mb-5" style="width:600px;">
   <h3 class="">users: ( <%= @all_users.size %> users registered )</h3>
   <h3 class="">properties: ( <%= @properties.size %> properties listed )</h3>
 </div>
+-->
 
 <section class="bg-light py-1 rounded mb-3">
   <div 
